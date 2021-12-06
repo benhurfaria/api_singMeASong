@@ -55,7 +55,13 @@ async function downVote(req, res) {
 
 async function randomRecommendation(req,res){
   try{
-    const result = await recommendationSongServices.updateVote();
+    const result = await recommendationSongServices.getRandomRecommendations();
+
+    if(result === "não existe recomendacoes"){
+      return res.sendStatus(404);
+    }
+
+    return res.status(200).send(result);
   }catch(err){
     return;
   }

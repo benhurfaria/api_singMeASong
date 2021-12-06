@@ -27,4 +27,20 @@ async function updateVote({ id, operator }) {
   return song[0].score;
 }
 
-export { postSongRecommendation, updateVote };
+async function getRandomRecommendations(){
+  let limit = (Math.random() > 0.7) ? '<=10' : '>10';
+
+  let song = await recommendationSongRepository.getRandomRecommendations({limit});
+
+  if(!song){
+    song = await recommendationSongRepository.getRandom();
+  }
+
+  if(!song){
+    return "não existe recomendacoes";
+  }
+
+  return song;
+}
+
+export { postSongRecommendation, updateVote, getRandomRecommendations };
