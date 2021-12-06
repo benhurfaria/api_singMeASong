@@ -27,7 +27,7 @@
 
 ### - unit tests:
 <blockquote>
-  num run start:test
+  npm run start:test
 </blockquote>
 
 <img src="./assets/tests.gif" height="400"/>
