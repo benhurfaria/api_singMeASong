@@ -24,4 +24,11 @@
     DB_HOST=localhost
     PORT=4000
 }
+
+### - unit tests:
+<blockquote>
+  num run start:test
+</blockquote>
+
+<img src="./assets/tests.gif" height="400"/>
 <br/>
