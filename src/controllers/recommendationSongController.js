@@ -63,8 +63,23 @@ async function randomRecommendation(req,res){
 
     return res.status(200).send(result);
   }catch(err){
-    return;
+    return res.sendStatus(500);
   }
 }
 
-export { postSongRecommendation, upVote, downVote, randomRecommendation };
+async function getTopSongs(req, res){
+  const { amount } = req.params; 
+
+  try{
+    const result = await recommendationSongServices.getTopSongs({ amount });
+
+    if(result === false){
+      return res.sendStatus(400);
+    }
+    return res.status(200).send(result);
+  }catch(err){
+    return res.sendStatus(500);
+  }
+}
+
+export { postSongRecommendation, upVote, downVote, randomRecommendation, getTopSongs };

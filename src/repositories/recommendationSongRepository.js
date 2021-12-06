@@ -42,4 +42,9 @@ async function getRandom(){
   return song.rows[0];
 }
 
-export { postSongRecommendation, getSongById, updateScore, deleteSong, getRandomRecommendations, getRandom };
+async function getTopSongs({ amount }){
+  const topSongs = await connection.query(`SELECT * FROM video ORDER BY score DESC LIMIT ${amount};`);
+  return topSongs.rows;
+}
+
+export { postSongRecommendation, getSongById, updateScore, deleteSong, getRandomRecommendations, getRandom, getTopSongs };

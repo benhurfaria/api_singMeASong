@@ -43,4 +43,12 @@ async function getRandomRecommendations(){
   return song;
 }
 
-export { postSongRecommendation, updateVote, getRandomRecommendations };
+async function getTopSongs({ amount }){
+  const topSongs = await recommendationSongRepository.getTopSongs({ amount });
+
+  if(topSongs.length === 0) return false;
+
+  return topSongs;
+}
+
+export { postSongRecommendation, updateVote, getRandomRecommendations, getTopSongs };
