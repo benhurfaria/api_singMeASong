@@ -41,7 +41,7 @@ async function getRandomRecommendations(){
   }
 
   return song;
-}
+} 
 
 async function getTopSongs({ amount }){
   const topSongs = await recommendationSongRepository.getTopSongs({ amount });

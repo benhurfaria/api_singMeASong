@@ -5,6 +5,6 @@ const path =
     ? '.env'
     : process.env.NODE_ENV === 'dev'
     ? '.env'
-    : '.env.test';
+    : '.env';
 
 dotenv.config({ path });
